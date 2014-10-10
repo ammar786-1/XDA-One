@@ -1,12 +1,5 @@
 package com.xda.one.ui;
 
-import com.xda.one.R;
-import com.xda.one.api.misc.Consumer;
-import com.xda.one.model.misc.ForumType;
-import com.xda.one.ui.helper.UrlParseHelper;
-import com.xda.one.util.AccountUtils;
-import com.xda.one.util.CrashUtils;
-
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -22,6 +15,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
+
+import com.xda.one.R;
+import com.xda.one.api.misc.Consumer;
+import com.xda.one.model.misc.ForumType;
+import com.xda.one.ui.helper.UrlParseHelper;
+import com.xda.one.util.AccountUtils;
+import com.xda.one.util.CrashUtils;
 
 public class MainActivity extends BaseActivity
         implements NavigationDrawerFragment.Callback, SubscribedPagerFragment.Callback,
@@ -174,11 +174,11 @@ public class MainActivity extends BaseActivity
             }
         }
 
-        if (!mDrawerLayout.isDrawerOpen(Gravity.LEFT)
-                && getSupportFragmentManager().getBackStackEntryCount() == 0) {
-            mDrawerLayout.openDrawer(Gravity.LEFT);
-            return;
-        }
+//        if (!mDrawerLayout.isDrawerOpen(Gravity.LEFT)
+//                && getSupportFragmentManager().getBackStackEntryCount() == 0) {
+//            mDrawerLayout.openDrawer(Gravity.LEFT);
+//            return;
+//        }
         super.onBackPressed();
     }
 
@@ -210,7 +210,7 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void switchCurrentlyDisplayedFragment(final Fragment fragment,
-            final boolean backStackAndAnimate, final String title) {
+                                                 final boolean backStackAndAnimate, final String title) {
         getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (backStackAndAnimate) {
